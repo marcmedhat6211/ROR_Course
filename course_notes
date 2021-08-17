@@ -1,0 +1,168 @@
+**GENERAL NOTES**
+	- You don't need semicolons in ruby language
+	- 2y 7aga betraga3 value, y2ema "nil" el hya null y3ny, aw betraga3 value 3ala 7asab ba2a
+	- pure OOP
+	- Everything is an object, even the integer for example is an object
+	- if a variable is equal to another variable
+		the new var is pinting to the location in the memory where that first var is pointing to
+	- in ruby lama betendah 3ala method 7ata lw enta msh 7atet;aha return statement hya betraga3lak 3alatool el value el 7asalet gwa el method (this happens if you only have ONE expression or the 	  last expresseion)
+	- the exclamation mark in ruby means that you mutate the caller
+		ex: x = (1..10).to_a
+		x.reverse
+		puts x -> [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+		
+		on the other hand if i did x.reverse!
+		puts x -> [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]		
+	
+**METHODS**
+	reverse						=>		dyh bet reverse an array w betraga3o reversed
+	puts							=>		stands for put string w bet print fel terminal el value
+	to_s							=> 		convert to string
+	to_i							=>		convert to integer
+	to_f							=>		convert to float
+	class							=> 		to know the type
+	length							=>		length of string
+	capitalize						=>		dyh bet capitalize only the first letter in the string
+	empty?							=>		betraga3 boolean true aw false lw el string dh fady wala la2
+	nil?							=>		betraga3 eza kanet el 7aga dyh nil wala la2
+	sub							=> 		string replacement
+	gsub							=>		string replacement bs global
+	times							=>		e3mel el 7aga el folaneya 3adad el marat dyh ex: 20.times { print "-" }
+	rand							=>		creates random number ex: rand(10) -> generates a number between 0-9
+	odd?							=>		checks whether the value is odd or not, returns true or false
+	even?							=>		checks whether the value is even or not, returns true or false
+	eql?							=>		checks if the 2 values are equal or not (and is comparing types too!)
+	is_a?(String)						=>		returns true if string false if not
+	
+	COMPARISONS: (you can use them with numbers and string)
+	a == b		(no types comparing)
+	a === b	(no types comparing)
+	1 == 2
+	5 < 2
+	2 <= 5
+	5 && 6
+	5 || 6
+	
+	gets.chomp						=>		takes input from the user (always returns string so if i want to deal with a number i'll have to convert it to integer)
+	
+**IF CONDITIONS**
+	if condition
+		#statement
+	elsif another_condition
+		#statement
+	end
+	
+**SWITCH CASE**
+	case operator
+	when "*"
+		#do this
+	when "+"
+		#do that
+	else
+		#to anothor thing
+	end
+	
+**ARRAYS**
+	a = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+	a.last								=>		will get me the last element in the array
+	
+	**RANGE
+	x = 1..100 #dh keda range
+	x.class -> range
+	y = x.to_a							=>		converts to array
+	y.shuffle
+	
+	ex2:
+	alphabets = "a".."z"						=>		will shuffle the elements randomly
+	
+	
+	a = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+	a.length => 9
+	a << 10							=>		this will put the element 10 at the end of the array
+	a.unshift("Marc")						=>		this will add the string "Marc" at index 0 in the array
+	a.append("Marc")						=>		append the the end of the array
+	a.uniq								=>		removes the duplicate data from the array
+	a.uniq!							=>		to mutate the caller
+	a.empty?							=>		true or false lw fady aw la2
+	a.include?							=>		lw el 7aga ma7toota fel array wala la2 (returns true or false)
+	a.push("new item")						=>		this will push an element to the end of the array
+	b = a.pop							=>		removes the last element and returns it
+	a.join								=>		takes all elements and returns them concatinated as one string
+	a.join("-")							=>		takes all elements and returns them concatinated with - between each element
+	b = a.join("-")
+	b.split							=>		returns an array
+	b.split("-")							=>		will split each element whenever sees a - and returns an array of new elements
+	%w(my name is marc medhat and ruby is amazing)		=>		will take whatever i wrote and returns an array with no spaces between them
+	z = _								=>		keda z dyh hata5od el value bta3et el expression el ablyha 3alatool and just store it in z
+	a.find_index(5)						=>		returns the index where the number 5 is there
+	a.reject {
+		|item| item.empty?
+	}
+	
+	**ITERATORS
+	ana delwa2ty 3andy array nums = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+	lw 3ayz alef 3aleh fyh 2 ways
+	1) loop 3adeya
+		for num in nums
+			print num # dyh hatala3 error 3ashan bte3mel concatenate ben integer w string
+		end
+	2) iterator
+		nums.each do |num|
+			print num
+		end	
+		
+		nums.each { |num| print num }
+		
+	select: (dyh bteshta3'al aktar m3 el 7agat el boolean)
+	# nums = (1..10).to_a
+	# new_nums = nums.select{ |num| num.odd? }  #gets only the odd numbers
+	# p new_nums
+	
+	
+**HASHES**
+	hash = {"a" => 1, "b" => 2, "c" => 3}				=> hash["a"] = 1
+	hash2 = {"name" => "marc", "favcolor" => "red"}		=> hash2["name"] = marc
+	another_hash = {a: 1, b: 2, c: 3} #That here is a symbol, a symbol is something you won't likely change => another_hash[:a] = 1, Symbol is a datatype in ruby
+	
+	hash.keys							=>		gives me all the keys in the hash
+	hash.values							=>		gives me all the values of the hash
+	hash[:e] = "Marc"						=>		if :e key is already there, its value will be replaced with "Marc", otherwise add key :e and value Marc to hash hash
+	hash.delete(k)							=>		will delete the key and the value with the value k
+	
+	**ITERATING THROUGH HASHES:
+		#way one
+		hash.each do |key, value|
+			puts "the key is #{key} and the value is #{value}"
+		end
+		
+		#way two (only if one line of code is written in the block)
+		hash.each { |key,value| puts "the key is #{key} and the value is #{value}" } 
+		
+		#way Three (returns only all the string values)
+		hash.select {
+			|k, v| v.is_a?(String)
+		}
+		
+		#way Four (remove the string values from the hash)
+		hash.each { |key, value| hash.delete(key) if value.is_a?(String) }
+		
+	 
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+	
