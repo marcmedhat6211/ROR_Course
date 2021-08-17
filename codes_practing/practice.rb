@@ -185,8 +185,16 @@
 
 
 ##HASHES##
-sample_hash = {a: 1, b: 2, c: 3}
-puts sample_hash[:a]
-sample_hash.each do |key, value|
-    puts "the class for key is #{key.class} and the class for value is #{value.class}"
+# sample_hash = {a: 1, b: 2, c: 3}
+# puts sample_hash[:a]
+# sample_hash.each do |key, value|
+#     puts "the class for key is #{key.class} and the class for value is #{value.class}"
+# end
+
+# puts "Marc".downcase
+
+
+loop do
+    puts "my name is marc"
+    #infinite loop
 end

@@ -14,6 +14,10 @@
 		on the other hand if i did x.reverse!
 		puts x -> [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]		
 	
+	- if you want to make an if condition in one line you can simply write it like this ---> puts "Marc" if condition = true
+	- Methods and variable names are written in snake case in ror (is_valid) --> this is the snake case
+	- ror uses 2 spaces indentation
+	- classes are camel case and the first letter is capital
 **METHODS**
 	reverse						=>		dyh bet reverse an array w betraga3o reversed
 	puts							=>		stands for put string w bet print fel terminal el value
@@ -33,6 +37,7 @@
 	even?							=>		checks whether the value is even or not, returns true or false
 	eql?							=>		checks if the 2 values are equal or not (and is comparing types too!)
 	is_a?(String)						=>		returns true if string false if not
+	downcase						=>		dyh betraga3 el string kolo small cases
 	
 	COMPARISONS: (you can use them with numbers and string)
 	a == b		(no types comparing)
