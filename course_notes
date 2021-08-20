@@ -18,6 +18,8 @@
 	- Methods and variable names are written in snake case in ror (is_valid) --> this is the snake case
 	- ror uses 2 spaces indentation
 	- classes are camel case and the first letter is capital
+  - If you want to make a global variable or array just put a $ before the variable or the array name
+
 **METHODS**
 	reverse						=>		dyh bet reverse an array w betraga3o reversed
 	puts							=>		stands for put string w bet print fel terminal el value
@@ -47,6 +49,7 @@
 	2 <= 5
 	5 && 6
 	5 || 6
+  5 <=>   This returns 0, 1, -1 depending on the condition
 	
 	gets.chomp						=>		takes input from the user (always returns string so if i want to deal with a number i'll have to convert it to integer)
 	
@@ -82,7 +85,7 @@
 	
 	
 	a = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-	a.length => 9
+	a.length() => 9
 	a << 10							=>		this will put the element 10 at the end of the array
 	a.unshift("Marc")						=>		this will add the string "Marc" at index 0 in the array
 	a.append("Marc")						=>		append the the end of the array

@@ -194,7 +194,12 @@
 # puts "Marc".downcase
 
 
-loop do
-    puts "my name is marc"
-    #infinite loop
-end
+# loop do
+#   puts "my name is marc"
+#   #infinite loop
+# end
+
+# returns -1 if <
+# returns 0 if =
+# returns 1 if >
+# puts 5 <=> 4
