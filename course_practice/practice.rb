@@ -203,3 +203,15 @@
 # returns 0 if =
 # returns 1 if >
 # puts 5 <=> 4
+
+#HASHING PASSWORDS
+# password = "123456"
+# hashed_password = password.hash()
+# puts password == hashed_password
+
+# get the bit length of an integer
+# var = 1534236469
+# puts var.bit_length
+
+#to make a power
+# p 2 ** 3
