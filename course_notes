@@ -103,6 +103,7 @@
 	a.reject {
 		|item| item.empty?
 	}
+	a.split(//) 		=> dh hayraga3 array metzabat w gahez
 	
 	**ITERATORS
 	ana delwa2ty 3andy array nums = [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -150,6 +151,12 @@
 		
 		#way Four (remove the string values from the hash)
 		hash.each { |key, value| hash.delete(key) if value.is_a?(String) }
+
+
+##MD5 - bcrypt##
+	dh 7aga keda 3ashan mwdoo3 el hashing bta3 el passwords fel database
+	link: https://www.rubydoc.info/gems/bcrypt-ruby
+
 		
 	 
 	
