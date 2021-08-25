@@ -215,3 +215,15 @@
 
 #to make a power
 # p 2 ** 3
+
+
+# arr = [1, 2, 3, 4, 5]
+
+# puts arr.sum
+
+# INJECT dyh bet7ot awl value as the initial value el hya hena 0 w bta5od el elements bta3et el array w tebda2 t increment 3aleha (in this case y3ny)
+# area.inject(0) { |sum, ar| sum + ar }
+
+# arr = [9, 5, 8, 10, 3, 7]
+# arr.sort!
+# p arr

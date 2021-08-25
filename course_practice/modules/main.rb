@@ -16,6 +16,9 @@ users = [
 ]
 
 
+# hashed_users = Crud.create_secure_users(users)
+# p Crud.authenticate_user("marc", "pass1", hashed_users)
+
 hashed_users = Crud.create_secure_users(users)
 p Crud.authenticate_user("marc", "pass1", hashed_users)
 
