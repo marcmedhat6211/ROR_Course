@@ -180,6 +180,7 @@ commands:
 
 **IMPORTANT TO KNOW**
 - templates --> .html.erb (embedded ruby)
+- rails uses ActiveRecord for database known as ORM (Object Relational Mapper)
 
 **Directory Structure**
   app/assets/               #static, images and stylesheets, css
@@ -210,7 +211,10 @@ commands:
 ->  rails generate controller pages                          # generates a controller
 ->  rails s (or) rails server                                # start rails server
 ->  bundle i (or) bundle install                             # zy composer i keda
-->  
+->  rails generate scaffold Article title:string description:text	#dh bey create million 7aga, migration file, w model, some tests, a whole routes by invoking resource_route, a controller and all 									 the views you need to work with
+-> rails db:migrate						# run the migration files
+-> rails routes						# to check all the routes i got
+-> rails routes --expanded					# bey5ally el routes tezhar b shakl andaf 3ashan te3raf tshofhom kwayes
 
 
 		
