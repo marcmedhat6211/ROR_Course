@@ -1,0 +1,185 @@
+**************************************************************************************************RAILS*****************************************************************************************************
+**GENERAL NOTES**
+- subygems.org (download any gem to use)
+- rubyonrails.org (documentation)
+
+**IMPORTANT TO KNOW**
+- templates --> .html.erb (embedded ruby)
+- rails uses ActiveRecord for database known as ORM (Object Relational Mapper)
+
+**Directory Structure**
+  app/assets/               #static, images and stylesheets, css
+  app/assets/application.css      #dh el css file bta3 el application kolo
+  app/channels                  #real time applications available
+  app/helpers               # dh el makan el bte3mel fyh el helper functions el mmkn testa5demha fel erb files
+  db/                         #dh fyh kol 7aga t5os el database w hayeb2a fyh file esmo schema w dh haye2a fyh el schema file bta3 el project kolo el hayet7at fyh shakl el database 3amla ezay
+  Gemfile                   #dh el fyh kol el gems el m3molaha install w benzabato zy ma7na 3ayzyn w n3mel bundle install
+
+**MVC**
+  MVC - Model, View, Controller
+  General flow of Rails application:
+  -> Request made at browser
+  -> Request received at router of rails application
+  -> Request routed to appropriate action in a controller
+  -> Controller#action either renders a view template or communicates with model
+  -> Model communicates with database
+  -> Model sends back information to controller
+  -> Controller renders view
+
+
+**APPLICATION USING RAILS**
+- in app/config/routes.rb #this is where your routes will be
+- msh me7tag a2olo fel method return 2y 7aga 3asha y render el page hwa bye3melaha render wa7do bel naming conventions
+
+**CLI**
+->  rails new rails_app -d mysql                             # create new rails app using mysql
+->  rails generate controller pages                          # generates a controller
+->  rails s (or) rails server                                # start rails server
+->  bundle i (or) bundle install                             # zy composer i keda
+->  rails generate scaffold Article title:string description:text	#dh bey create million 7aga, migration file, w model, some tests, a whole routes by invoking resource_route, a controller and all 									 the views you need to work with
+-> rails db:migrate						# run the migration files
+-> rails db:rollback						# hayshyl a5er migration 7asalet
+-> rails routes						# to check all the routes i got
+-> rails routes --expanded					# bey5ally el routes tezhar b shakl andaf 3ashan te3raf tshofhom kwayes
+-> rails generate migration create_articles			# create a migrations file
+-> rails console (rails c)					# to access rails console (where you can run database queries as you want using the ORM syntax)
+
+
+
+**MODELS**
+	model name: article (singular)
+	Article model file name: article.rb (snake case)
+	Article model class name: Article
+	Table name: articles (plural)
+	
+**RAILS CONSOLE**
+	Article.all											# get all articles
+	Article.create(title: "first article", description: "first article description")		# this creates a new article
+	article = Article.new										# creates a new article object with nil values
+	article.title = "second article"
+	article.description = "second article description"						# set the data using the setters and getters methods
+	article.save											# save in the database
+	Article.find(2)										# select where id = 2
+	Article.first											# first article
+	Article.last											# last article
+	article = Article.find(2)									# 7ot el article el id bta3o b 2 mwgood fel variable article
+	articles = Article.all										# variable fyh kol el articles
+	article.title											# getter lel title
+	article.description										# getter lel description
+	article.title = "edited title"								# use the setter to update the article
+	article = Article.last
+	article.destroy										# hamsa7 el article dh 3alatool (hayetshal mn el db 3alatool msh lazem a3mel save)
+	reload!											# dh 3ashan lw ana 3amalt ta3'yyr fel model msln w 3ayzo ysama3 fel console
+	article.errors											# to get the errors i got (not in really readable way)
+	article.errors.full_message									# gets me the error message i got
+	Article.create(title: nil).valid?								# .valid? method to check returns true or false
+	
+	
+
+**VALIDATIONS** (In the model class)
+	validates :title, presence: true								# validates the title (title can't be blank)
+	validates :description, presence: true, length: { minimum: 10, maximum: 300 }		# validates the description that it can't be blank and the minimum length is 10
+	validates :terms_of_service, acceptance: true							# validates that the checkbox is checked or not
+	validates :terms_of_service, acceptance: { message: 'must be abided' }			# to change the message of your validation
+	validates :terms_of_service, acceptance: { accept: 'yes' }					# ba2olo eh hya el accepted value aw eh hya el value el sa3etha hayraga3 true lama te7sal
+  	validates :eula, acceptance: { accept: ['TRUE', 'accepted'] }				
+	validates_associated :books									# dyh bte7sal lama ykoon el model bta3y related b model tany, f b validate el common column
+	validates :email, confirmation: true								# dh 3ashan lw 3ayz a3mel confirmation, ba3mello f bye3mel field gdyd esmo field_confirmation
+	validates :password, length: { in: 6..20 }							# el password length mn 6 to 20
+	validates :name, :login, :email, presence: true						# validate all fields in one line of code
+	validates :email, uniqueness: true								# validates en el email 
+
+
+**CRUD**
+	General notes:
+		- byebug is the tool to use to debug your code
+	show action:
+		- params hash is the hash that contains all the paras from url, so if you want to access the id for ex --> @article = Article.find(params[:id])
+	index action:
+		- @articles = Article.all
+	
+	
+**FORMS**
+	- The form helper <%= form_with do |form| %> dyh bteshta3'al by default ajax request <% end %>
+	- el route bta3ha by default bet submit to the current page with a post request
+	- rails bet generate authenticity_token gwa input type hidden, w dh security feature esmo (cross-site request forgery protection) w dh bey7afez 3ala el form mn 2y malicious activity
+	
+	<%= form_with url: "/search", method: :get do |form| %>
+	  <%= form.label :query, "Search for:" %>
+	  <%= form.text_field :query %>
+	  <%= form.submit "Search" %>
+	<% end %>
+	
+	# The above maps to below
+	
+	<form action="/search" method="get" accept-charset="UTF-8" >
+	  <label for="query">Search for:</label>
+	  <input id="query" name="query" type="text" />
+	  <input name="commit" type="submit" value="Search" data-disable-with="Search" />
+	</form>
+	
+	<%= form.check_box :pet_dog %>								
+	<%= form.label :pet_dog, "I own a dog" %>							
+	<%= form.radio_button :age, "child" %>							
+	<%= form.text_area :message, size: "70x5" %>
+	<%= form.hidden_field :parent_id, value: "foo" %>
+	<%= form.password_field :password %>
+	<%= form.number_field :price, in: 1.0..20.0, step: 0.5 %>
+	<%= form.range_field :discount, in: 1..100 %>
+	<%= form.date_field :born_on %>
+	<%= form.time_field :started_at %>
+	<%= form.datetime_local_field :graduation_day %>
+	<%= form.month_field :birthday_month %>
+	<%= form.week_field :birthday_week %>
+	<%= form.search_field :name %>
+	<%= form.email_field :address %>
+	<%= form.telephone_field :phone %>
+	<%= form.url_field :homepage %>
+	<%= form.color_field :favorite_color %>
+	
+	# The above maps to below
+	
+	<input type="checkbox" id="pet_dog" name="pet_dog" value="1" />
+	<label for="pet_dog">I own a dog</label>
+	<%= form.radio_button :age, "child" %>
+	<textarea name="message" id="message" cols="70" rows="5"></textarea>
+	<input type="hidden" name="parent_id" id="parent_id" value="foo" />
+	<input type="password" name="password" id="password" />
+	<input type="number" name="price" id="price" step="0.5" min="1.0" max="20.0" />
+	<input type="range" name="discount" id="discount" min="1" max="100" />
+	<input type="date" name="born_on" id="born_on" />
+	<input type="time" name="started_at" id="started_at" />
+	<input type="datetime-local" name="graduation_day" id="graduation_day" />
+	<input type="month" name="birthday_month" id="birthday_month" />
+	<input type="week" name="birthday_week" id="birthday_week" />
+	<input type="search" name="name" id="name" />
+	<input type="email" name="address" id="address" />
+	<input type="tel" name="phone" id="phone" />
+	<input type="url" name="homepage" id="homepage" />
+	<input type="color" name="favorite_color" id="favorite_color" value="#000000" />
+	
+	#FORM TO AN OBJECT
+	<%= form_with model: @article do |form| %>
+	  <%= form.text_field :title %>
+	  <%= form.text_area :body, size: "60x10" %>
+	  <%= form.submit %>
+	<% end %>
+
+	# The above maps to below
+	
+	<form action="/articles/42" method="post" accept-charset="UTF-8" >
+	  <input name="authenticity_token" type="hidden" value="..." />
+	  <input type="text" name="article[title]" id="article_title" value="My Title" />
+	  <textarea name="article[body]" id="article_body" cols="60" rows="10">
+	    My Body
+	  </textarea>
+	  <input type="submit" name="commit" value="Update Article" data-disable-with="Update Article">
+	</form>
+	
+
+
+
+
+
+
+

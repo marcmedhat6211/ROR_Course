@@ -173,50 +173,6 @@ commands:
 ##REFERENCES##
   shayhowe                                            #dh website at3alem fyh html w css
 
-************************************************************************************RAILS***********************************************************************
-**GENERAL NOTES**
-- subygems.org (download any gem to use)
-- rubyonrails.org (documentation)
-
-**IMPORTANT TO KNOW**
-- templates --> .html.erb (embedded ruby)
-- rails uses ActiveRecord for database known as ORM (Object Relational Mapper)
-
-**Directory Structure**
-  app/assets/               #static, images and stylesheets, css
-  app/assets/application.css      #dh el css file bta3 el application kolo
-  app/channels                  #real time applications available
-  app/helpers               # dh el makan el bte3mel fyh el helper functions el mmkn testa5demha fel erb files
-  db/                         #dh fyh kol 7aga t5os el database w hayeb2a fyh file esmo schema w dh haye2a fyh el schema file bta3 el project kolo el hayet7at fyh shakl el database 3amla ezay
-  Gemfile                   #dh el fyh kol el gems el m3molaha install w benzabato zy ma7na 3ayzyn w n3mel bundle install
-
-**MVC**
-  MVC - Model, View, Controller
-  General flow of Rails application:
-  -> Request made at browser
-  -> Request received at router of rails application
-  -> Request routed to appropriate action in a controller
-  -> Controller#action either renders a view template or communicates with model
-  -> Model communicates with database
-  -> Model sends back information to controller
-  -> Controller renders view
-
-
-**APPLICATION USING RAILS**
-- in app/config/routes.rb #this is where your routes will be
-- msh me7tag a2olo fel method return 2y 7aga 3asha y render el page hwa bye3melaha render wa7do bel naming conventions
-
-**CLI**
-->  rails new rails_app -d mysql                             # create new rails app using mysql
-->  rails generate controller pages                          # generates a controller
-->  rails s (or) rails server                                # start rails server
-->  bundle i (or) bundle install                             # zy composer i keda
-->  rails generate scaffold Article title:string description:text	#dh bey create million 7aga, migration file, w model, some tests, a whole routes by invoking resource_route, a controller and all 									 the views you need to work with
--> rails db:migrate						# run the migration files
--> rails routes						# to check all the routes i got
--> rails routes --expanded					# bey5ally el routes tezhar b shakl andaf 3ashan te3raf tshofhom kwayes
-
-
 		
 	 
 	
