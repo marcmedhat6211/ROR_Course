@@ -97,6 +97,11 @@
 		- params hash is the hash that contains all the paras from url, so if you want to access the id for ex --> @article = Article.find(params[:id])
 	index action:
 		- @articles = Article.all
+	new action:
+		- just leave it empty and go to /new and it will work
+	create action:
+		- There is a new security feature in rails 4 called (STrong parameters) dyh ma3naha en enta el params el enta bet7awel te3melaha save lazem teb2a white listed
+		- you have to permit what will be added to the database
 	
 	
 **FORMS**
@@ -175,6 +180,11 @@
 	  </textarea>
 	  <input type="submit" name="commit" value="Update Article" data-disable-with="Update Article">
 	</form>
+	
+	"emmet.includeLanguages": {
+	  ".*erb": "html",
+	  "ruby": "html"
+	}
 	
 
 
