@@ -180,16 +180,3 @@
 	  </textarea>
 	  <input type="submit" name="commit" value="Update Article" data-disable-with="Update Article">
 	</form>
-	
-	"emmet.includeLanguages": {
-	  ".*erb": "html",
-	  "ruby": "html"
-	}
-	
-
-
-
-
-
-
-
