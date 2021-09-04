@@ -180,3 +180,45 @@
 	  </textarea>
 	  <input type="submit" name="commit" value="Update Article" data-disable-with="Update Article">
 	</form>
+
+**FRONTEND**
+	**BOOTSTRAP, JQUERY AND POPUP.JS CONFIGURATIONS** (reference link ==>     https://www.mashrurhossain.com/blog/rails6bootstrap4       ) (RAILS 6)
+		Step 1:
+			yarn add bootstrap@4.4.1 jquery popper.js				# run this command to install them to your rails 6 app
+		step 2:
+			*= require bootstrap							# add this line to app/assets/stylesheets/application.css file
+		step 3:
+			environment.plugins.append("Provide", new webpack.ProvidePlugin({	# add this block of code in config/webpack/environment.js
+			    $: 'jquery',
+			    jQuery: 'jquery',
+			    Popper: ['popper.js', 'default']
+			}))
+		step 4:
+			import "bootstrap"							# add this line to app/javascript/pack/application.js file
+		step 5:
+			@import 'bootstrap/dist/css/bootstrap';				# add this line the new file app/assets/stylesheets/custom.css.scss file (to override the bootstrap classes)
+			
+	**BOOTSTRAP, JQUERY AND POPUP.JS CONFIGURATIONS** (reference link ==>     https://www.mashrurhossain.com/blog/rails6bootstrap4       ) (RAILS 5 or below)
+		Just follow one of those 2 links below:
+			https://www.udemy.com/course/the-complete-ruby-on-rails-developer-course/learn/lecture/3851042#questions/1133742
+			https://github.com/twbs/bootstrap-rubygem
+
+	**GENERAL NOTES**
+		- Javascript uses webpack in rails 6
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
