@@ -51,6 +51,7 @@
 	Article model file name: article.rb (snake case)
 	Article model class name: Article
 	Table name: articles (plural)
+	before_save { self.email = email.downcase }		# before saving to db make the email downcased
 	
 **RAILS CONSOLE**
 	Article.all											# get all articles
@@ -74,9 +75,21 @@
 	article.errors.full_message									# gets me the error message i got
 	Article.create(title: nil).valid?								# .valid? method to check returns true or false
 	
+	**AFTER ASSOCIATION BETWEEN USER AND ARTICLES TABLES:
+	user_1 = User.first
+	user_1.articles.build(title: "Some Title", description: "Some Description")			# will create that article for that user id
+	article = _											# keda el article object dh hayetsave fyh a5er operation et3amalet
+	
+	article = Article.first	
+	user_2 = User.last
+	user_2.articles << article									# adding the new article the new user's articles list
+	
+	**AUTHENTICATION
+	BCrypt::Password.create("password")								# creates new hashed password
+	
 	
 
-**VALIDATIONS** (In the model class)
+**VALIDATIONS** (In the model class) (https://rubular.com/         ===>    to test for regular expressions (regex))
 	validates :title, presence: true								# validates the title (title can't be blank)
 	validates :description, presence: true, length: { minimum: 10, maximum: 300 }		# validates the description that it can't be blank and the minimum length is 10
 	validates :terms_of_service, acceptance: true							# validates that the checkbox is checked or not
@@ -87,7 +100,9 @@
 	validates :email, confirmation: true								# dh 3ashan lw 3ayz a3mel confirmation, ba3mello f bye3mel field gdyd esmo field_confirmation
 	validates :password, length: { in: 6..20 }							# el password length mn 6 to 20
 	validates :name, :login, :email, presence: true						# validate all fields in one line of code
-	validates :email, uniqueness: true								# validates en el email 
+	validates :email, uniqueness: true								# validates en el email unique
+	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
+	validates :email, presence: true, uniqueness: {case_sensitive: false}, length: { maximum: 105 }, format: { with: VALID_EMAIL_REGEX }
 
 
 **CRUD**
@@ -205,6 +220,16 @@
 
 	**GENERAL NOTES**
 		- Javascript uses webpack in rails 6
+		
+
+
+**AUTHENTICATION**
+	step 1:
+		install bcrypt									# shyl el comment el 3aleha fel gem file and then run bundle install
+	step 2:
+		has_secure_password								# add this line to user model
+	step 3:
+		password_digest								# add this column to you user table
     
     
     
