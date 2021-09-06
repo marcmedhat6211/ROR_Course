@@ -43,6 +43,7 @@
 -> rails routes --expanded					# bey5ally el routes tezhar b shakl andaf 3ashan te3raf tshofhom kwayes
 -> rails generate migration create_articles			# create a migrations file
 -> rails console (rails c)					# to access rails console (where you can run database queries as you want using the ORM syntax)
+-> rails routes --expanded | grep edit			# get all the routes that has the edit keyword
 
 
 
@@ -86,6 +87,12 @@
 	
 	**AUTHENTICATION
 	BCrypt::Password.create("password")								# creates new hashed password
+	password = _
+	password.salt											# will return the salt used for this password
+	user = User.last
+	user.password = "password123"
+	user.authenticate("password")									# will return false
+	user.authenticate("password")									# will return the user object which tells me that this user is authenticated
 	
 	
 
@@ -230,7 +237,9 @@
 		has_secure_password								# add this line to user model
 	step 3:
 		password_digest								# add this column to you user table
-    
+	
+	**Notes**
+	- After creating the new user form and try to render it, it will give me an error because it didn't find the route to go to after form submission which supposed to be a POST request
     
     
     
