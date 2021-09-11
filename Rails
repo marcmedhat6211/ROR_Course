@@ -2,10 +2,13 @@
 **GENERAL NOTES**
 - subygems.org (download any gem to use)
 - rubyonrails.org (documentation)
+- Gravatar:
+	a website to use avatar images as placeholders for your website
 
 **IMPORTANT TO KNOW**
 - templates --> .html.erb (embedded ruby)
 - rails uses ActiveRecord for database known as ORM (Object Relational Mapper)
+- If you want to add helper functions that you want to use in your views, you will have to define that method in app/helpers/application_helper.rb
 
 **Directory Structure**
   app/assets/               #static, images and stylesheets, css
@@ -239,7 +242,7 @@
 		password_digest								# add this column to you user table
 	
 	**Notes**
-	- After creating the new user form and try to render it, it will give me an error because it didn't find the route to go to after form submission which supposed to be a POST request
+		- After creating the new user form and try to render it, it will give me an error because it didn't find the route to go to after form submission which supposed to be a POST request
     
     
     
