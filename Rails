@@ -100,6 +100,10 @@
 	user.authenticate("password")									# will return the user object which tells me that this user is authenticated
 
 	User.find_by(email: "marc@gmail.com")								# find by el email
+
+	user = User.last
+	user.admin?											# false
+	user.toggle!(:admin)										# dyh hatroo7 tshoof el column el emo admin fel db w lw true will set it to false and vice versa
 	
 	
 
