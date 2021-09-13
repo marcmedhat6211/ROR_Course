@@ -40,6 +40,7 @@
 	eql?							=>		checks if the 2 values are equal or not (and is comparing types too!)
 	is_a?(String)						=>		returns true if string false if not
 	downcase						=>		dyh betraga3 el string kolo small cases
+  arr.delete(2)       => will delete the element 2 from array arr
 	
 	COMPARISONS: (you can use them with numbers and string)
 	a == b		(no types comparing)

@@ -227,3 +227,13 @@
 # arr = [9, 5, 8, 10, 3, 7]
 # arr.sort!
 # p arr
+
+#dyh keda hatraga3 array
+# s = "marc"
+# p s.split('')
+
+
+arr = [2,14,18,22,22]
+arr.each do |num|
+  puts arr.count(num)
+end
