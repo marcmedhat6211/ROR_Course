@@ -9,6 +9,8 @@
 - templates --> .html.erb (embedded ruby)
 - rails uses ActiveRecord for database known as ORM (Object Relational Mapper)
 - If you want to add helper functions that you want to use in your views, you will have to define that method in app/helpers/application_helper.rb
+- !!current_user			# dyh ma3naha en ana ha7awel el method dyh l boolean method, y3ny mn el a5er lw fyh current user haraga3 true, else haraga3 false
+					# can be used in helper logged_in? Method
 
 **Directory Structure**
   app/assets/               #static, images and stylesheets, css
@@ -96,6 +98,12 @@
 	user.password = "password123"
 	user.authenticate("password")									# will return false
 	user.authenticate("password")									# will return the user object which tells me that this user is authenticated
+
+	User.find_by(email: "marc@gmail.com")								# find by el email
+
+	user = User.last
+	user.admin?											# false
+	user.toggle!(:admin)										# dyh hatroo7 tshoof el column el emo admin fel db w lw true will set it to false and vice versa
 	
 	
 
@@ -243,7 +251,11 @@
 	
 	**Notes**
 		- After creating the new user form and try to render it, it will give me an error because it didn't find the route to go to after form submission which supposed to be a POST request
-    
+
+
+**USEFUL BUNDLES**
+- will_paginate							# used for pagination
+- bcrypt							# used for hashing the password
     
     
     
