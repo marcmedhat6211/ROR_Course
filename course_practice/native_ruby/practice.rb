@@ -233,7 +233,53 @@
 # p s.split('')
 
 
-arr = [2,14,18,22,22]
-arr.each do |num|
-  puts arr.count(num)
+# arr = [2,14,18,22,22]
+# arr.each do |num|
+#   puts arr.count(num)
+# end
+
+# GET THE MAXIMUM INTEGER
+# FIXNUM_MAX = (2**(0.size * 8 -2) -1)
+# p FIXNUM_MAX
+
+
+# s = "marc"
+# array = s.split('')
+# for i in 0..array.length - 1
+#   p array[i]
+# end
+
+
+# arr = [1, 2, 5, 8, 1, 10]
+# arr.each.with_index do |el, i|
+#   p "el is #{el}"
+#   p "i is #{i}"
+# end
+
+
+# s = "marc"
+# s.each_char.with_index do |char, index|
+#   p "char is #{char}"
+#   p "index is #{index}"
+# end
+
+
+# this will return 6 which is the index of the last repeated ovject 1
+# arr = [1, 2, 2, 2, 3, 2, 1]
+# p arr.rindex(1)
+
+# s = "marc"
+# p s.count('m')
+
+# .. include the last element while ... don't
+# (1..5).include? 5   # true
+# (1...5).include? 5   # false
+
+s = "hello"
+s_array =  s.split("")
+result = []
+((s.length - 1)..0).each do |index|
+  result[index] = s_array[index]
 end
+
+p result

@@ -107,6 +107,17 @@
 		|item| item.empty?
 	}
 	a.split(//) 		=> dh hayraga3 array metzabat w gahez
+
+  s = marc
+  s.each_char { |c| print c, ' ' }      =>    m a r c
+  
+  arr.each.with_index do |el, i|            =>      with_index -> to take control of the array index
+    p el
+    p i
+  end
+
+  arr = [1, 2, 5, 5, 6, 5, 5, 10]               
+  arr.rindex(5)                             => will return 6 which is the last index of the repeated object 5 
 	
 	**ITERATORS
 	ana delwa2ty 3andy array nums = [1, 2, 3, 4, 5, 6, 7, 8, 9]
