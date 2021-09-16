@@ -275,11 +275,13 @@
 # (1..5).include? 5   # true
 # (1...5).include? 5   # false
 
-s = "hello"
-s_array =  s.split("")
-result = []
-((s.length - 1)..0).each do |index|
-  result[index] = s_array[index]
-end
+# s = "hello"
+# s_array =  s.split("")
+# result = []
+# ((s.length - 1)..0).each do |index|
+#   result[index] = s_array[index]
+# end
 
-p result
+# (0..10).reverse_each do |i|
+#   p i
+# end
