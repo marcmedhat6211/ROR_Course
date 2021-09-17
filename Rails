@@ -256,6 +256,23 @@
 **USEFUL BUNDLES**
 - will_paginate							# used for pagination
 - bcrypt							# used for hashing the password
+
+
+**UNIT TESTING**
+	**notes
+	- mini test is the test framework used by rails and it's already installed with it
+	- setup method in test file is made to run before every test to make minimize the code redundancy
+	- an integration test is a test where you test all the business process
+	- functional tests on the other hand are tests used to test a single function in a controller
+	- the helper file under testing is used to define methods that you're gonna use in all your tests files
+
+	**CLI
+	rails test							# runs all the tests you have
+	rails generate test_unit:scaffold category			# will create 2 files 1) test/controllers/categories_controller_test.rb, 2) test/system/categories_test.rb
+	rails test test/controllers					# runs only the controllers tests
+	rails generate integration_test create_category			# this will generate an integration test for creating a category
+									# and will generate this file test/integration/create_category_test.rb
+	
     
     
     
