@@ -285,3 +285,14 @@
 # (0..10).reverse_each do |i|
 #   p i
 # end
+
+# arr = [1, 2, 1]
+# res = arr.each_index.select {
+#   |i| arr[i] == 1
+# }
+
+# p arr.rindex(1)
+
+s = "marc"
+s.delete!('a')
+p s
